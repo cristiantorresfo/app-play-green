@@ -32,7 +32,7 @@ export default function History() {
             </Button>
             <h1>History</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima exercitationem magnam placeat at fugiat, ad culpa pariatur impedit amet.</p>
-            {data?.sports ? <div>Loading...</div>
+            {!data?.sports ? <div>Loading...</div>
                 :
                 <BoxHistoryLikes>
                     {userData?.[0]?.favorites?.length > 0 &&

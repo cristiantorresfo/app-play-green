@@ -42,3 +42,7 @@ border-radius: 50%;
 }
   /* object-fit: cover;  */
 `
+export const ConatinerSlide = styled.div`
+height: 100%;
+margin-top:50%;
+`

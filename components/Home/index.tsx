@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import useImages from '../../hooks/useImages';
-import { ButtonLike, ContainerButtons, DivLoading, ImageLike, ImageSlide, SlideContainer } from './styles';
+import { ButtonLike, ConatinerSlide, ContainerButtons, DivLoading, ImageLike, ImageSlide, SlideContainer } from './styles';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
 import { auth, updateUser } from '../../lib/firebase';
 import { arrayRemove, arrayUnion } from 'firebase/firestore';
@@ -18,9 +18,7 @@ export default function Home() {
   const { data } = useImages();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0); 
   const {users} = useContext(UserContext)
-  console.log(users, 'users')
   const currentUser = auth?.currentUser;
-  console.log(currentUser)
   const [currentSlide, setCurrentSlide] = useState(
     <ImageSlide
       src={data?.sports[0]?.strSportThumb || ''}
@@ -38,10 +36,8 @@ export default function Home() {
   }, [data]);
 
   const handleLike = useCallback(() => {
-    // Obtenemos el ID de la imagen actual
     const nextIndex = currentSlideIndex === data?.sports.length - 1 ? 0 : currentSlideIndex + 1;
     const nextImage = data?.sports[nextIndex];
-    console.log(nextImage, 'nextimage')
     const currentImageId = nextImage?.idSport;
     
     const userToUpdate = users?.find((user: any) => user.uid === currentUser?.uid);
@@ -64,18 +60,15 @@ export default function Home() {
       />
     );
   
-    // updateUser(currentUser?.uid, dataUpdate)
     setCurrentSlideIndex(
         currentSlideIndex === data?.sports.length - 1 ? 0 : currentSlideIndex + 1
       );
   }, [currentSlideIndex, data]);
   
   const handleDislike = useCallback(() => {
-    // Obtenemos el ID de la imagen actual
     const nextIndex = currentSlideIndex === data?.sports.length - 1 ? 0 : currentSlideIndex + 1;
     const nextImage = data?.sports[nextIndex];
     const currentImageId = nextImage?.idSport;
-    console.log(currentImageId, 'id')
     
     const userToUpdate = users?.find((user: any) => user.uid === currentUser?.uid);
     if (userToUpdate) {
@@ -94,7 +87,6 @@ export default function Home() {
       />
     );
   
-    // updateUser(currentUser?.uid, dataUpdate)
     setCurrentSlideIndex(
         currentSlideIndex === data?.sports.length - 1 ? 0 : currentSlideIndex + 1
       );
@@ -115,8 +107,11 @@ export default function Home() {
   }
 
   return (
-    <div style={{width:'100%'}}>
-      <Slider {...settings}>{currentSlide}</Slider>
+    <div style={{width:'100%', height:'80%', padding:'5px'}}>
+      <h2>Elige tu deporte favorito</h2>
+      <ConatinerSlide>
+        <Slider {...settings}>{currentSlide}</Slider>
+      </ConatinerSlide>
       <ContainerButtons>
         <ButtonLike onClick={handleDislike}><ImageLike src='dislike.png'/></ButtonLike>
         <ButtonLike onClick={handleLike}><ImageLike src='like.png'/></ButtonLike>
