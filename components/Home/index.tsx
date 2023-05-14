@@ -117,6 +117,6 @@ export default function Home() {
         <ButtonLike onClick={handleLike}><ImageLike src='like.png'/></ButtonLike>
       </ContainerButtons>
       <FooterComponent/>
-    </ContainerSlide>
+    </div>
   );
 }
