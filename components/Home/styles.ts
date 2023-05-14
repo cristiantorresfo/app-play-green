@@ -42,3 +42,11 @@ border-radius: 50%;
 }
   /* object-fit: cover;  */
 `
+
+export const ContainerSlide= styled.div`
+height: 85vh;
+justify-content: center;
+align-items: center;
+display: flex;
+flex-direction: column;
+`

@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import useImages from '../../hooks/useImages';
-import { ButtonLike, ContainerButtons, DivLoading, ImageLike, ImageSlide, SlideContainer } from './styles';
+import { ButtonLike, ContainerButtons, ContainerSlide, DivLoading, ImageLike, ImageSlide, SlideContainer } from './styles';
 import { useCurrentUser } from '../../hooks/useCurrentUser';
 import { auth, updateUser } from '../../lib/firebase';
 import { arrayRemove, arrayUnion } from 'firebase/firestore';
@@ -115,13 +115,13 @@ export default function Home() {
   }
 
   return (
-    <div style={{width:'100%'}}>
+    <ContainerSlide>
       <Slider {...settings}>{currentSlide}</Slider>
       <ContainerButtons>
         <ButtonLike onClick={handleDislike}><ImageLike src='dislike.png'/></ButtonLike>
         <ButtonLike onClick={handleLike}><ImageLike src='like.png'/></ButtonLike>
       </ContainerButtons>
       <FooterComponent/>
-    </div>
+    </ContainerSlide>
   );
 }
