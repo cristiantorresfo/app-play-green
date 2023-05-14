@@ -1,5 +1,9 @@
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
 html,
 body {
+  background-color: rgb(242, 243, 243);
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -14,3 +18,6 @@ a {
 * {
   box-sizing: border-box;
 }
+`
+
+export default GlobalStyle
