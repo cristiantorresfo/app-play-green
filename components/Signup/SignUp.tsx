@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Input, InputWrapper } from "../Login/styles";
-import { Container, Description, Title } from "./styles";
+import { ButtonBack, Container, Description, Image, Title } from "./styles";
 import { signUp } from '../../lib/firebase'
 import { useRouter } from "next/router";
 
@@ -20,6 +20,9 @@ export function SignUp() {
 
     return (
         <Container>
+            <ButtonBack>
+                <Image src='flecha.png' onClick={() => router.back()} />
+            </ButtonBack>
             <Title>Create your user</Title>
             <Description>Enter your credentials to sign up</Description>
             <form onSubmit={handleSubmit} style={{ width: '100%' }}>

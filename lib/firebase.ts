@@ -14,7 +14,6 @@ import {
   signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged
 } from "firebase/auth";
 
-// const router = useRouter();
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAfPNZjY_GsA-nv1Twrm1JNadQVfTIPnio",
@@ -35,7 +34,6 @@ export const auth = getAuth();
   
 export const provider = new GoogleAuthProvider();
 export const logInWithGoogle = () => signInWithPopup(auth, provider);
-// export const logout = () => signOut(auth);
 
 export const handleSignOut = async (router) => {
     try {
@@ -69,10 +67,8 @@ export const usersCollection = collection(db, "users");
 export async function signUp (email, password, router, setLoading) {
     setLoading(true)
     try {
-      // Crear usuario con email y password
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
   
-      // Agregar datos del usuario a la colección de usuarios en Firestore
       const userData = {
         email: user.email,
         uid:user.uid,
@@ -95,7 +91,6 @@ export async function signUp (email, password, router, setLoading) {
   export async function LogIn (email, password, router, setLoading) {
     setLoading(true)
     try {
-      // Crear usuario con email y password
       const { user } = await signInWithEmailAndPassword(auth, email, password);
       setLoading(false)
       console.log('User logged successfully', user);

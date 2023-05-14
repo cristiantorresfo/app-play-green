@@ -15,3 +15,19 @@ export const Title = styled.h1`
 export const Description = styled.p`
 
 `
+export const Image = styled.img`    
+    width:30px;
+`
+
+export const ButtonBack = styled.button`
+    align-self:flex-start;
+    border-radius: 15px;
+    border:none;
+    cursor: pointer;
+    &:hover{
+        background-color: #D6D6D9;
+    }
+    &:active{
+        background-color: #D6D6D6;
+    }    
+`

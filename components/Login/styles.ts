@@ -45,7 +45,8 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-padding: 22px 38px;
+padding: 15px 38px;
+margin-top: 20px;
 background: linear-gradient(99deg, #236BFE 6.69%, #0D4ED3 80.95%);
 box-shadow: 0px 4px 30px rgba(34, 105, 251, 0.8);
 border-radius: 25px;
