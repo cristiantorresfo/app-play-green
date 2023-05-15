@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
 html,
 body {
+width: 375px;
+height: 100%;
   background-color: rgb(242, 243, 243);
   padding: 0;
   margin: 0;

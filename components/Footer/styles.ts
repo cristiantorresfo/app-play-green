@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const Footer = styled.div`
     display: flex;
     flex-direction:row;
-    width: 100%;
+    width: 360px;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
     background-color: white;
     border-radius: 25px;
     position: fixed;
-  bottom: 0;
+    bottom: 0;
 `
 export const ImagenFooter = styled.img`    
     width:30px;

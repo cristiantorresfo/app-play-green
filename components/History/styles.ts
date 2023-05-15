@@ -27,6 +27,6 @@ export const Button = styled.button`
 
 export const BoxHistoryLikes = styled.div`
 width: 100%;
-height: 58vh;
+height: 54vh;
 overflow: scroll;
 `
