@@ -1,5 +1,5 @@
 import { collection, onSnapshot } from "firebase/firestore";
-import { createContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 import { db } from "../../lib/firebase";
 
 const USER_INITIAL = {
@@ -13,14 +13,19 @@ export interface Users {
 }
 
 interface UserContextInterface {
-    users: Users[];
+    users?: Users[];
+    userLog?:any;
+    setUserLog?:any;
+    USER_INITIAL?:any;
+    setUsers?:React.Dispatch<React.SetStateAction<Users[]>>;
+    
     // otras propiedades...
   }
 export const UserContext = createContext<UserContextInterface>({});
 
-export const UserProvider = ({ children }) => {
+export const UserProvider = ({ children }:any) => {
   const [userLog, setUserLog] = useState(USER_INITIAL);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<Users[]>([]);
 
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "users"), (snapshot) => {
@@ -33,7 +38,7 @@ export const UserProvider = ({ children }) => {
             dislike:doc.data().dislike
           };
         },
-        (error) => {
+        (error:any) => {
           console.log(error, "error de escucha");
         }
       );

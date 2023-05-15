@@ -2,10 +2,28 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { message } from "antd";
 
-const useImages = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+export interface Data {
+    sports: Sport[];
+}
 
+export interface Sport {
+    idSport:             string;
+    strSport:            string;
+    strFormat:           StrFormat;
+    strSportThumb:       string;
+    strSportIconGreen:   string;
+    strSportDescription: string;
+}
+
+export enum StrFormat {
+    EventSport = "EventSport",
+    TeamvsTeam = "TeamvsTeam",
+}
+
+
+const useImages = () => {
+  const [data, setData] = useState<Data>();
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
         setIsLoading(true);

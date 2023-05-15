@@ -35,7 +35,7 @@ export const auth = getAuth();
 export const provider = new GoogleAuthProvider();
 export const logInWithGoogle = () => signInWithPopup(auth, provider);
 
-export const handleSignOut = async (router) => {
+export const handleSignOut = async (router:any) => {
     try {
       await auth.signOut();
       router.push('/')
@@ -46,14 +46,14 @@ export const handleSignOut = async (router) => {
     }
   };
 
-export async function addUser(user) {
+export async function addUser(user:any) {
   try {
     await addDoc(collection(db, "users"), user);
   } catch (e) {
     console.error("Error adding document: ", e);
   }
 }
-export async function updateUser(id, newData) {
+export async function updateUser(id:string, newData:any) {
   const userRef = doc(db, "users", id);
 
   try {
@@ -64,7 +64,7 @@ export async function updateUser(id, newData) {
 }
 export const usersCollection = collection(db, "users");
 
-export async function signUp (email, password, router, setLoading) {
+export async function signUp (email:string, password:string, router:any, setLoading:any) {
     setLoading(true)
     try {
       const { user } = await createUserWithEmailAndPassword(auth, email, password);
@@ -82,13 +82,13 @@ export async function signUp (email, password, router, setLoading) {
         content:'User has registered successfully. You can now log in with your credentials.',
         onOk() {router.push('/')}
      })
-    } catch (error) {
+    } catch (error:any) {
       console.error(error.message);
       setLoading(false)
       
     }
   }  
-  export async function LogIn (email, password, router, setLoading) {
+  export async function LogIn (email:string, password:string, router:any, setLoading:any) {
     setLoading(true)
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
@@ -96,7 +96,7 @@ export async function signUp (email, password, router, setLoading) {
       console.log('User logged successfully', user);
       message.success('Welcome!')
       router.push('/home')
-    } catch (error) {
+    } catch (error:any) {
       console.error(error.message);
       setLoading(false)
       

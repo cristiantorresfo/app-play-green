@@ -10,7 +10,6 @@ import { FooterComponent } from '../Footer'
 export default function History() {
     const router = useRouter()
     const { users } = useContext(UserContext) 
-    console.log(users)
     const currentUser = auth?.currentUser;
     const { data } = useImages();
     const userData = users?.filter((user: any) => user?.uid === currentUser?.uid)
@@ -18,14 +17,17 @@ export default function History() {
     const getImage = (id: string): string => {
         const sport = data?.sports?.find((sport: any) => sport.idSport === id);
         const urlImage = sport?.strSportThumb;
-        return urlImage;
+        return urlImage as string;
     }
 
     const getName = (id: string): string => {
         const sport = data?.sports?.find((sport: any) => sport.idSport === id);
         const Name = sport?.strSport;
-        return Name;
+        return Name as string;
     }
+    const lengthFavorites = userData?.[0]?.favorites?.length as number 
+    const lengthDislikes = userData?.[0]?.dislike?.length as number 
+    
     return (
         <ContainerHistory>
             <Button>
@@ -36,7 +38,8 @@ export default function History() {
             {!data?.sports ? <div>Loading...</div>
                 :
                 <BoxHistoryLikes>
-                    {userData?.[0]?.favorites?.length > 0 &&
+                    {
+                    lengthFavorites > 0 &&
                         <>
                             <h4>Likes</h4>
                             {userData?.[0]?.favorites?.map((fav: any, index: number) => {
@@ -46,7 +49,7 @@ export default function History() {
                             })}
                         </>
                     }
-                    {userData?.[0]?.dislike?.length > 0 &&
+                    {lengthDislikes > 0 &&
                         <>
                             <h4>Dislikes</h4>
                             {userData?.[0]?.dislike?.map((fav: any, index: number) => {

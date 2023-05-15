@@ -9,11 +9,11 @@ export function Login() {
     const [isLoadingLogin, setIsLoadingLogin] = useState(false)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const handleEmailChange = (event) => setEmail(event.target.value);
-    const handlePasswordChange = (event) => setPassword(event.target.value);
+    const handleEmailChange = (event:any) => setEmail(event.target.value);
+    const handlePasswordChange = (event:any) => setPassword(event.target.value);
 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event:any) => {
         event.preventDefault();
         LogIn(email, password, router, setIsLoadingLogin);
     };
