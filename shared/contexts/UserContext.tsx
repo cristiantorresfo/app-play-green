@@ -5,8 +5,18 @@ import { db } from "../../lib/firebase";
 const USER_INITIAL = {
   uid: "",
 };
+export interface Users {
+    id:        string;
+    uid?:      string;
+    favorites: string[];
+    dislike:   string[];
+}
 
-export const UserContext = createContext({});
+interface UserContextInterface {
+    users: Users[];
+    // otras propiedades...
+  }
+export const UserContext = createContext<UserContextInterface>({});
 
 export const UserProvider = ({ children }) => {
   const [userLog, setUserLog] = useState(USER_INITIAL);

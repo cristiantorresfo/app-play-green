@@ -9,7 +9,8 @@ import { FooterComponent } from '../Footer'
 
 export default function History() {
     const router = useRouter()
-    const { users } = useContext(UserContext)
+    const { users } = useContext(UserContext) 
+    console.log(users)
     const currentUser = auth?.currentUser;
     const { data } = useImages();
     const userData = users?.filter((user: any) => user?.uid === currentUser?.uid)
@@ -28,7 +29,7 @@ export default function History() {
     return (
         <ContainerHistory>
             <Button>
-                <Image src='flecha.png' onClick={() => router.back()} />
+                <Image src='flecha.png' onClick={() => router.back()}  alt='image'/>
             </Button>
             <h1>History</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima exercitationem magnam placeat at fugiat, ad culpa pariatur impedit amet.</p>

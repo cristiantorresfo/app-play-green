@@ -1,0 +1,25 @@
+[debug] [2023-05-15T00:10:26.081Z] ----------------------------------------------------------------------
+[debug] [2023-05-15T00:10:26.085Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\crist\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2023-05-15T00:10:26.085Z] CLI Version:   12.0.0
+[debug] [2023-05-15T00:10:26.086Z] Platform:      win32
+[debug] [2023-05-15T00:10:26.086Z] Node Version:  v16.17.0
+[debug] [2023-05-15T00:10:26.095Z] Time:          Sun May 14 2023 19:10:26 GMT-0500 (hora estándar de Colombia)
+[debug] [2023-05-15T00:10:26.096Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-15T00:10:26.214Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-15T00:10:26.215Z] > authorizing via signed-in user (cristiantorres1407@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\crist\Documentos\PRUEBAS TECNICAS\app-play-green
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+

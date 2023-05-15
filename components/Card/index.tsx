@@ -3,6 +3,7 @@ import { BoxCard, ImageCard, ImageLogo, TextName } from "./styles";
 type TCard = {
     src:string;
     name: string;
+    logo:string;
 }
 
 export  function Card({src,name, logo}:TCard) {
